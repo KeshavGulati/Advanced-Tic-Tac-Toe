@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faO } from "@fortawesome/free-solid-svg-icons";
 import { useUserIcon } from "../Components/UserChoiceContext.tsx"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 export default function Home() {
@@ -14,12 +14,17 @@ export default function Home() {
     
   }, []);
 
+  const username = useParams().username;
+
     return (
 	<div className="main-div"> 
-	    <div className="icon-div">
+	    <div className="text-[#a0a0a0] font-bold text-3xl">
+        Welcome <span className="text-[#65E9E4]">{`${username}`}</span>
+      </div>
+      {/* <div className="icon-div">
 	      <FontAwesomeIcon icon={faXmark} className="x-mark" />
 	      <FontAwesomeIcon icon={faO} className="o-mark" />
-	    </div>
+	    </div> */}
     
 	    <div className="choice-div">
 	      <span className="span pick-text">Pick player 1's mark</span>
